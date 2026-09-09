@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Class with the task solution
+ * Class with the task solution.
  */
 public class Main {
 
@@ -36,14 +36,19 @@ public class Main {
             int right = node * 2 + 2;
             int largest = node;
 
-            if (arr[left] > arr[largest]) largest = left;
-            if (right < len && arr[right] > arr[largest]) largest = right;
+            if (arr[left] > arr[largest]) {
+                largest = left;
+            }
+            if (right < len && arr[right] > arr[largest]) {
+                largest = right;
+            }
 
             if (largest != node) {
                 swap(arr, node, largest);
                 node = largest;
+            } else {
+                break;
             }
-            else break;
         }
     }
 
