@@ -63,4 +63,9 @@ class MainTest {
     void testNullArray() {
         assertDoesNotThrow(() -> Main.heapSort(null));
     }
+
+    @Test
+    void testMainDoesNotThrow() {
+        assertDoesNotThrow(() -> Main.main(new String[0]));
+    }
 }
