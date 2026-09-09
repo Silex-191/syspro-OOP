@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
+
     @Test
     void testStandardArray() {
         int[] actual = {5, 4, 1, 2, 3};

@@ -1,6 +1,15 @@
 import java.util.Arrays;
 
+/**
+ * Class with the task solution
+ */
 public class Main {
+
+    /**
+     * Prevents instantiation of this utility class.
+     */
+    private Main() {}
+
     /**
      * Swaps two elements in the specified array.
      *
@@ -68,6 +77,11 @@ public class Main {
         }
     }
 
+    /**
+     * Application entry point for testing and demonstration.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         int[] arr = {5, 4, 1, 2, 3};
         heapSort(arr);
