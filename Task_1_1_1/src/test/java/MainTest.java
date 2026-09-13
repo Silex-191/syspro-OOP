@@ -52,6 +52,14 @@ class MainTest {
     }
 
     @Test
+    void testTwoElements() {
+        int[] actual = {67, 52};
+        int[] expected = {52, 67};
+        Main.heapSort(actual);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
     void testEmptyArray() {
         int[] actual = {};
         int[] expected = {};
@@ -60,12 +68,12 @@ class MainTest {
     }
 
     @Test
-    void testNullArray() {
+    void testNull() {
         assertDoesNotThrow(() -> Main.heapSort(null));
     }
 
     @Test
-    void testMainDoesNotThrow() {
+    void testMain() {
         assertDoesNotThrow(() -> Main.main(new String[0]));
     }
 }

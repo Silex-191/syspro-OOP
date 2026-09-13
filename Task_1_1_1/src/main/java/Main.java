@@ -64,7 +64,8 @@ public class Main {
     }
 
     /**
-     * Sorts an array of integers in ascending order using the heapsort algorithm.
+     * Sorts an array of integers in ascending order using the heapsort algorithm in place.
+     * If null is given, the method does nothing.
      *
      * @param arr the array to be sorted
      */
