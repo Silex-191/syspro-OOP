@@ -58,7 +58,7 @@ public class Hand {
      * Retrieves a string representation of the most recently drawn card in the hand.
      *
      * @return a formatted string of the last card, or "Рука пуста" (Hand is empty)
-     * if the hand contains no cards
+     *     if the hand contains no cards
      */
     public String lastCard() {
         if (cards.isEmpty()) {
@@ -81,7 +81,7 @@ public class Hand {
      * The cards are formatted as a comma-separated list.
      *
      * @return a formatted string displaying all cards in the hand, or "Рука пуста"
-     * (Hand is empty) if the hand contains no cards
+     *     (Hand is empty) if the hand contains no cards
      */
     @Override
     public String toString() {

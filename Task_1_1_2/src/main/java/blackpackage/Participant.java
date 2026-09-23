@@ -31,7 +31,8 @@ public abstract class Participant {
         Card card = cards.getCard();
 
         if (card == null) {
-            System.out.println("В колоде больше нет карт. Дилер взял новую колоду и тщательно перемешал её.");
+            System.out.println("В колоде больше нет карт. " +
+                    "Дилер взял новую колоду и тщательно перемешал её.");
             cards.newDeck();
             card = cards.getCard();
         }

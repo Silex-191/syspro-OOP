@@ -58,7 +58,7 @@ public class DeckOfCards {
      * The card is removed from the deck upon being drawn.
      *
      * @return the {@link Card} drawn from the top of the deck,
-     * or {@code null} if the deck is empty
+     *     or {@code null} if the deck is empty
      */
     public Card getCard() {
         if (cards.isEmpty()) {

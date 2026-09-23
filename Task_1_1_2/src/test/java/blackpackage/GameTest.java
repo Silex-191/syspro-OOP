@@ -42,8 +42,10 @@ class GameTest {
         game.startRound();
         String output = outContent.toString();
 
-        assertTrue(output.contains("Вы проиграли!"), "The output must indicate that the player lost by busting");
-        assertTrue(output.contains("Ваш счет: 26"), "The output must show the correct busted score of 26");
+        assertTrue(output.contains("Вы проиграли!"),
+                "The output must indicate that the player lost by busting");
+        assertTrue(output.contains("Ваш счет: 26"),
+                "The output must show the correct busted score of 26");
     }
 
     @Test
@@ -63,8 +65,10 @@ class GameTest {
         game.startRound();
         String output = outContent.toString();
 
-        assertTrue(output.contains("Вы выиграли!"), "The output must indicate that the player won instantly by hitting 21");
-        assertTrue(output.contains("Ваш счет: 21"), "The output must show the exact winning score of 21");
+        assertTrue(output.contains("Вы выиграли!"),
+                "The output must indicate that the player won instantly by hitting 21");
+        assertTrue(output.contains("Ваш счет: 21"),
+                "The output must show the exact winning score of 21");
     }
 
     @Test
@@ -84,8 +88,10 @@ class GameTest {
         game.startRound();
         String output = outContent.toString();
 
-        assertTrue(output.contains("Дилер проиграл!"), "The output must indicate that the dealer busted and lost");
-        assertTrue(output.contains("счет дилера: 26"), "The output must show the dealer's busted score of 26");
+        assertTrue(output.contains("Дилер проиграл!"),
+                "The output must indicate that the dealer busted and lost");
+        assertTrue(output.contains("счет дилера: 26"),
+                "The output must show the dealer's busted score of 26");
     }
 
     @Test
