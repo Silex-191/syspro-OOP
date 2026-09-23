@@ -75,14 +75,16 @@ class HandTest {
 
         int score = hand.getScore();
 
-        assertEquals(21, score, "Multiple aces must be handled correctly to prevent busting if possible");
+        assertEquals(21, score,
+                "Multiple aces must be handled correctly to prevent busting if possible");
     }
 
     @Test
     void testLastCardWithEmptyHand() {
         String result = hand.lastCard();
 
-        assertEquals("Рука пуста", result, "Empty hand must return the specific localized empty string");
+        assertEquals("Рука пуста", result,
+                "Empty hand must return the specific localized empty string");
     }
 
     @Test
@@ -94,14 +96,16 @@ class HandTest {
 
         String result = hand.lastCard();
 
-        assertEquals(secondCard.toString(), result, "lastCard() must return the string representation of the most recently added card");
+        assertEquals(secondCard.toString(), result,
+                "lastCard() must return the string representation of the most recently added card");
     }
 
     @Test
     void testToStringWithEmptyHand() {
         String result = hand.toString();
 
-        assertEquals("Рука пуста", result, "Empty hand toString() must return the localized empty string");
+        assertEquals("Рука пуста", result,
+                "Empty hand toString() must return the localized empty string");
     }
 
     @Test

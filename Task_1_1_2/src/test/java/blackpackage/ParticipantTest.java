@@ -45,7 +45,8 @@ class ParticipantTest {
         participant.addWin();
         participant.addWin();
 
-        assertEquals(2, participant.getScoreWins(), "addWin() must increment the score by 1 each time it is called");
+        assertEquals(2, participant.getScoreWins(),
+                "addWin() must increment the score by 1 each time it is called");
     }
 
     @Test
@@ -56,9 +57,12 @@ class ParticipantTest {
 
         participant.takeCard(deck);
 
-        assertEquals(1, participant.getHand().getCards().size(), "Hand must contain exactly 1 card after taking one");
-        assertEquals(targetCard, participant.getHand().getCards().getFirst(), "The drawn card must match the top card of the deck");
-        assertTrue(outContent.toString().isEmpty(), "No console output should be generated when the deck is not empty");
+        assertEquals(1, participant.getHand().getCards().size(),
+                "Hand must contain exactly 1 card after taking one");
+        assertEquals(targetCard, participant.getHand().getCards().getFirst(),
+                "The drawn card must match the top card of the deck");
+        assertTrue(outContent.toString().isEmpty(),
+                "No console output should be generated when the deck is not empty");
     }
 
     @Test
@@ -69,8 +73,10 @@ class ParticipantTest {
         participant.takeCard(emptyDeck);
         String output = outContent.toString();
 
-        assertEquals(1, participant.getHand().getCards().size(), "Participant must successfully draw a card even if the initial deck was empty");
-        assertTrue(output.contains("В колоде больше нет карт"), "The system must print a warning when drawing from an empty deck");
+        assertEquals(1, participant.getHand().getCards().size(),
+                "Participant must successfully draw a card even if the initial deck was empty");
+        assertTrue(output.contains("В колоде больше нет карт"),
+                "The system must print a warning when drawing from an empty deck");
     }
 
     @Test
