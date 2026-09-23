@@ -12,8 +12,32 @@ public class Game {
     private int round = 1;
     private final Player player = new Player();
     private final Dealer dealer = new Dealer();
-    private final DeckOfCards deck = new DeckOfCards();
-    private final Scanner scanner = new Scanner(System.in);
+
+    private final DeckOfCards deck;
+    private final Scanner scanner;
+
+    /**
+     * Default constructor for the game.
+     * Initializes the game with a standard, randomized 52-card deck
+     * and a scanner listening to standard system input.
+     */
+    public Game() {
+        this.deck = new DeckOfCards();
+        this.scanner = new Scanner(System.in);
+    }
+
+    /**
+     * Constructs a new {@code Game} with a specific deck and scanner.
+     * This constructor is intended for Dependency Injection, primarily useful
+     * for Unit Testing by providing predefined cards and mocked user input.
+     *
+     * @param deck    the {@link DeckOfCards} to be used in the game
+     * @param scanner the {@link Scanner} used to read user input
+     */
+    public Game(DeckOfCards deck, Scanner scanner) {
+        this.deck = deck;
+        this.scanner = scanner;
+    }
 
     /**
      * Initializes and starts the Blackjack game session.
@@ -22,14 +46,21 @@ public class Game {
      */
     public void startGame() {
         System.out.println("Добро пожаловать в Блэкджек!");
-        startRound();
+        while (true) {
+            if (!startRound()) {
+                System.out.println("Игра окончена! Ваши победы: " + player.getScoreWins()
+                        + ", победы дилера: "
+                        + dealer.getScoreWins());
+                break;
+            }
+        }
     }
 
     /**
      * Executes a single round of Blackjack.
      * Note: This method calls itself recursively if the player chooses to continue playing.
      */
-    public void startRound() {
+    public boolean startRound() {
         System.out.println("Раунд " + round++);
 
         player.resetHand();
@@ -126,13 +157,6 @@ public class Game {
         }
 
         System.out.println("Хотите продолжить игру? (1 - да, 0 - нет): ");
-        int continueChoice = scanner.nextInt();
-        if (continueChoice == 1) {
-            startRound();
-        } else {
-            System.out.println("Игра окончена! Ваши победы: " + player.getScoreWins()
-                    + ", победы дилера: "
-                    + dealer.getScoreWins());
-        }
+        return (scanner.nextInt() == 1);
     }
 }

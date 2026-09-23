@@ -21,6 +21,17 @@ public class DeckOfCards {
     }
 
     /**
+     * Constructs a new {@code DeckOfCards} with a predefined list of cards.
+     * This constructor is primarily used for Unit Testing (Dependency Injection)
+     * to provide a fixed, predictable sequence of cards. The deck is not shuffled.
+     *
+     * @param predefinedCards a {@code List} of {@link Card} objects to populate the deck
+     */
+    public DeckOfCards(List<Card> predefinedCards) {
+        this.cards.addAll(predefinedCards);
+    }
+
+    /**
      * Resets the deck to a full standard set of 52 cards.
      * This method clears any remaining cards, generates a new card for every
      * combination of {@link Suit} and {@link Rank}, and then shuffles the deck.

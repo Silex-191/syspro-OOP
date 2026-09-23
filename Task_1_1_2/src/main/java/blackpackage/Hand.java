@@ -12,23 +12,12 @@ public class Hand {
     private final List<Card> cards = new ArrayList<>();
 
     /**
-     * Draws a card from the provided deck and adds it to this hand.
-     * If the deck is empty, this method prints a localized message to the console,
-     * automatically generates a new shuffled deck, and draws a card from the new deck.
+     * Adds a specific card to this hand.
      *
-     * @param deckCards the {@link DeckOfCards} from which to draw a card
+     * @param card the {@link Card} to be added to the hand
      */
-    public void getCard(DeckOfCards deckCards) {
-        Card card = deckCards.getCard();
-
-        if (card == null) {
-            System.out.println("В колоде больше нет карт."
-                    + " Дилер взял новую колоду и тщательно перемешал её.");
-            deckCards.newDeck();
-            cards.add(deckCards.getCard());
-        } else {
-            cards.add(card);
-        }
+    public void addCard(Card card) {
+        cards.add(card);
     }
 
     /**
