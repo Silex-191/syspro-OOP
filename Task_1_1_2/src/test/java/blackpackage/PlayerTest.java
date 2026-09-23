@@ -9,6 +9,7 @@ class PlayerTest {
     void testPlayerInitializesWithCorrectDisplayName() {
         Player player = new Player();
         String fullHandString = player.toString();
-        assertTrue(fullHandString.contains("Ваши карты"), "The player's display name must be set correctly in the constructor");
+        assertTrue(fullHandString.contains("Ваши карты"),
+                "The player's display name must be set correctly in the constructor");
     }
 }

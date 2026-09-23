@@ -28,10 +28,12 @@ class DealerTest {
 
         String expectedDisplayName = "Карты дилера";
         String expectedHiddenMarker = "<закрытая карта>";
-        String expectedString = "\t" + expectedDisplayName + ": [" + firstCard.toString() + ", " + expectedHiddenMarker + "]";
+        String expectedString = "\t" + expectedDisplayName + ": ["
+                + firstCard.toString() + ", " + expectedHiddenMarker + "]";
 
         String actualString = dealer.getHiddenHandString();
-        assertEquals(expectedString, actualString, "The hidden hand string must reveal only the first card");
+        assertEquals(expectedString, actualString,
+                "The hidden hand string must reveal only the first card");
     }
 
     @Test
@@ -41,6 +43,7 @@ class DealerTest {
 
         String fullHandString = dealer.toString();
 
-        assertTrue(fullHandString.contains("Карты дилера"), "The dealer's display name must be set correctly in the constructor");
+        assertTrue(fullHandString.contains("Карты дилера"),
+                "The dealer's display name must be set correctly in the constructor");
     }
 }

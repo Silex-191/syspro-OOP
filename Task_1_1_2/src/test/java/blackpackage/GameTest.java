@@ -109,6 +109,7 @@ class GameTest {
 
         boolean willContinue = game.startRound();
 
-        assertFalse(willContinue, "startRound() must return false when the user inputs '0' to quit");
+        assertFalse(willContinue,
+                "startRound() must return false when the user inputs '0' to quit");
     }
 }

@@ -26,8 +26,10 @@ class DeckOfCardsTest {
 
         DeckOfCards deck = new DeckOfCards(riggedCards);
 
-        assertEquals(card1, deck.getCard(), "The first drawn card must match the first predefined card");
-        assertEquals(card2, deck.getCard(), "The second drawn card must match the second predefined card");
+        assertEquals(card1, deck.getCard(),
+                "The first drawn card must match the first predefined card");
+        assertEquals(card2, deck.getCard(),
+                "The second drawn card must match the second predefined card");
     }
 
     @Test
@@ -41,7 +43,8 @@ class DeckOfCardsTest {
             cardCount++;
         }
 
-        assertEquals(52, cardCount, "The newDeck() method must refill the deck to exactly 52 cards");
+        assertEquals(52, cardCount,
+                "The newDeck() method must refill the deck to exactly 52 cards");
     }
 
     @Test

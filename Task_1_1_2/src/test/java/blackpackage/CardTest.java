@@ -40,7 +40,9 @@ class CardTest {
         Rank testRank = Rank.QUEEN;
         Card card = new Card(testSuit, testRank);
         String actualString = card.toString();
-        String expectedString = testRank.getName() + " " + testSuit.getName() + " (" + testRank.getValue() + ")";
-        assertEquals(expectedString, actualString, "The toString() format does not match the expected pattern");
+        String expectedString = testRank.getName() + " "
+                + testSuit.getName() + " (" + testRank.getValue() + ")";
+        assertEquals(expectedString, actualString,
+                "The toString() format does not match the expected pattern");
     }
 }
