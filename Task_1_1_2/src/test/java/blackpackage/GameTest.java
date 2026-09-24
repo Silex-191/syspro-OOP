@@ -161,6 +161,35 @@ class GameTest {
                 "Dealer's wins must be 0");
     }
 
+    @Test
+    void testTwoRoundsGame() {
+        List<Card> predefinedCards = List.of(
+                new Card(Suit.SPADES, Rank.TEN),
+                new Card(Suit.HEARTS, Rank.TEN),
+                new Card(Suit.DIAMONDS, Rank.TEN),
+                new Card(Suit.CLUBS, Rank.EIGHT),
+
+                new Card(Suit.CLUBS, Rank.TEN),
+                new Card(Suit.SPADES, Rank.SEVEN),
+                new Card(Suit.HEARTS, Rank.TEN),
+                new Card(Suit.DIAMONDS, Rank.NINE)
+        );
+        DeckOfCards deck = new DeckOfCards(predefinedCards);
+
+        Scanner mockScanner = new Scanner("0\n1\n0\n0\n");
+        Game game = new Game(deck, mockScanner);
+
+        game.startGame();
+
+        assertEquals(17, game.playerGetScore(),
+                "Player's score must be 17");
+        assertEquals(19, game.dealerGetScore(),
+                "Dealer's score must be 19");
+        assertEquals(1, game.playerGetScoreWins(),
+                "Player's wins must be 1");
+        assertEquals(1, game.dealerGetScoreWins(),
+                "Dealer's wins must be 1");
+    }
 
     @Test
     void testStartRoundReturnsFalseWhenPlayerOptsOut() {
