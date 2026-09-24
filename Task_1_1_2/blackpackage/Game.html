@@ -128,6 +128,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dealerGetScore()" class="member-name-link">dealerGetScore</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retrieves the current numerical score of the dealer's hand.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dealerGetScoreWins()" class="member-name-link">dealerGetScoreWins</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retrieves the total number of rounds the dealer has won.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playerGetScore()" class="member-name-link">playerGetScore</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retrieves the current numerical score of the player's hand.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playerGetScoreWins()" class="member-name-link">playerGetScoreWins</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retrieves the total number of rounds the player has won.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startGame()" class="member-name-link">startGame</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -187,6 +207,54 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="playerGetScoreWins()">
+<h3>playerGetScoreWins</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">playerGetScoreWins</span>()</div>
+<div class="block">Retrieves the total number of rounds the player has won.
+ This is a forwarding method that delegates the call to the internal <a href="Player.html" title="class in blackpackage"><code>Player</code></a> instance.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the integer count of the player's total wins</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="dealerGetScoreWins()">
+<h3>dealerGetScoreWins</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">dealerGetScoreWins</span>()</div>
+<div class="block">Retrieves the total number of rounds the dealer has won.
+ This is a forwarding method that delegates the call to the internal <a href="Dealer.html" title="class in blackpackage"><code>Dealer</code></a> instance.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the integer count of the dealer's total wins</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="playerGetScore()">
+<h3>playerGetScore</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">playerGetScore</span>()</div>
+<div class="block">Retrieves the current numerical score of the player's hand.
+ This is a forwarding method that delegates the call to the internal <a href="Player.html" title="class in blackpackage"><code>Player</code></a> instance.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the calculated integer score of the player's hand</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="dealerGetScore()">
+<h3>dealerGetScore</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">dealerGetScore</span>()</div>
+<div class="block">Retrieves the current numerical score of the dealer's hand.
+ This is a forwarding method that delegates the call to the internal <a href="Dealer.html" title="class in blackpackage"><code>Dealer</code></a> instance.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the calculated integer score of the dealer's hand</dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="startGame()">
 <h3>startGame</h3>
