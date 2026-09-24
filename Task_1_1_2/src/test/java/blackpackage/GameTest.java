@@ -1,30 +1,13 @@
 package blackpackage;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-
-    @BeforeEach
-    void setUp() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @AfterEach
-    void tearDown() {
-        System.setOut(originalOut);
-    }
-
     @Test
     void testPlayerBustsAndLoses() {
         List<Card> predefinedCards = List.of(
@@ -39,13 +22,16 @@ class GameTest {
         Scanner mockScanner = new Scanner("1\n0\n");
         Game game = new Game(deck, mockScanner);
 
-        game.startRound();
-        String output = outContent.toString();
+        game.startGame();
 
-        assertTrue(output.contains("Вы проиграли!"),
-                "The output must indicate that the player lost by busting");
-        assertTrue(output.contains("Ваш счет: 26"),
-                "The output must show the correct busted score of 26");
+        assertEquals(26, game.playerGetScore(),
+                "Player's score must be 26");
+        assertEquals(17, game.dealerGetScore(),
+                "Dealer's score must be 17");
+        assertEquals(0, game.playerGetScoreWins(),
+                "Player's wins must be 0");
+        assertEquals(1, game.dealerGetScoreWins(),
+                "Dealer's wins must be 1");
     }
 
     @Test
@@ -63,12 +49,15 @@ class GameTest {
         Game game = new Game(deck, mockScanner);
 
         game.startRound();
-        String output = outContent.toString();
 
-        assertTrue(output.contains("Вы выиграли!"),
-                "The output must indicate that the player won instantly by hitting 21");
-        assertTrue(output.contains("Ваш счет: 21"),
-                "The output must show the exact winning score of 21");
+        assertEquals(21, game.playerGetScore(),
+                "Player's score must be 21");
+        assertEquals(17, game.dealerGetScore(),
+                "Dealer's score must be 17");
+        assertEquals(1, game.playerGetScoreWins(),
+                "Player's wins must be 1");
+        assertEquals(0, game.dealerGetScoreWins(),
+                "Dealer's wins must be 0");
     }
 
     @Test
@@ -86,13 +75,92 @@ class GameTest {
         Game game = new Game(deck, mockScanner);
 
         game.startRound();
-        String output = outContent.toString();
 
-        assertTrue(output.contains("Дилер проиграл!"),
-                "The output must indicate that the dealer busted and lost");
-        assertTrue(output.contains("счет дилера: 26"),
-                "The output must show the dealer's busted score of 26");
+        assertEquals(19, game.playerGetScore(),
+                "Player's score must be 19");
+        assertEquals(26, game.dealerGetScore(),
+                "Dealer's score must be 26");
+        assertEquals(1, game.playerGetScoreWins(),
+                "Player's wins must be 1");
+        assertEquals(0, game.dealerGetScoreWins(),
+                "Dealer's wins must be 0");
     }
+
+    @Test
+    void testPlayerWinsByHigherScore() {
+        List<Card> predefinedCards = List.of(
+                new Card(Suit.SPADES, Rank.TEN),
+                new Card(Suit.HEARTS, Rank.KING),
+                new Card(Suit.DIAMONDS, Rank.QUEEN),
+                new Card(Suit.CLUBS, Rank.EIGHT)
+        );
+        DeckOfCards deck = new DeckOfCards(predefinedCards);
+
+        Scanner mockScanner = new Scanner("0\n0\n");
+        Game game = new Game(deck, mockScanner);
+
+        game.startRound();
+
+        assertEquals(20, game.playerGetScore(),
+                "Player's score must be 20");
+        assertEquals(18, game.dealerGetScore(),
+                "Dealer's score must be 18");
+        assertEquals(1, game.playerGetScoreWins(),
+                "Player's wins must be 1");
+        assertEquals(0, game.dealerGetScoreWins(),
+                "Dealer's wins must be 0");
+    }
+
+    @Test
+    void testDealerWinsByHigherScore() {
+        List<Card> predefinedCards = List.of(
+                new Card(Suit.SPADES, Rank.TEN),
+                new Card(Suit.HEARTS, Rank.SEVEN),
+                new Card(Suit.DIAMONDS, Rank.QUEEN),
+                new Card(Suit.CLUBS, Rank.NINE)
+        );
+        DeckOfCards deck = new DeckOfCards(predefinedCards);
+
+        Scanner mockScanner = new Scanner("0\n0\n");
+        Game game = new Game(deck, mockScanner);
+
+        game.startRound();
+
+        assertEquals(17, game.playerGetScore(),
+                "Player's score must be 17");
+        assertEquals(19, game.dealerGetScore(),
+                "Dealer's score must be 19");
+        assertEquals(0, game.playerGetScoreWins(),
+                "Player's wins must be 0");
+        assertEquals(1, game.dealerGetScoreWins(),
+                "Dealer's wins must be 1");
+    }
+
+    @Test
+    void testGameEndsInTie() {
+        List<Card> predefinedCards = List.of(
+                new Card(Suit.SPADES, Rank.TEN),
+                new Card(Suit.HEARTS, Rank.EIGHT),
+                new Card(Suit.DIAMONDS, Rank.QUEEN),
+                new Card(Suit.CLUBS, Rank.EIGHT)
+        );
+        DeckOfCards deck = new DeckOfCards(predefinedCards);
+
+        Scanner mockScanner = new Scanner("0\n0\n");
+        Game game = new Game(deck, mockScanner);
+
+        game.startRound();
+
+        assertEquals(18, game.playerGetScore(),
+                "Player's score must be 18");
+        assertEquals(18, game.dealerGetScore(),
+                "Dealer's score must be 18");
+        assertEquals(0, game.playerGetScoreWins(),
+                "Player's wins must be 0");
+        assertEquals(0, game.dealerGetScoreWins(),
+                "Dealer's wins must be 0");
+    }
+
 
     @Test
     void testStartRoundReturnsFalseWhenPlayerOptsOut() {

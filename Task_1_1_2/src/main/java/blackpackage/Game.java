@@ -40,6 +40,46 @@ public class Game {
     }
 
     /**
+     * Retrieves the total number of rounds the player has won.
+     * This is a forwarding method that delegates the call to the internal {@link Player} instance.
+     *
+     * @return the integer count of the player's total wins
+     */
+    public int playerGetScoreWins() {
+        return player.getScoreWins();
+    }
+
+    /**
+     * Retrieves the total number of rounds the dealer has won.
+     * This is a forwarding method that delegates the call to the internal {@link Dealer} instance.
+     *
+     * @return the integer count of the dealer's total wins
+     */
+    public int dealerGetScoreWins() {
+        return dealer.getScoreWins();
+    }
+
+    /**
+     * Retrieves the current numerical score of the player's hand.
+     * This is a forwarding method that delegates the call to the internal {@link Player} instance.
+     *
+     * @return the calculated integer score of the player's hand
+     */
+    public int playerGetScore() {
+        return player.getScore();
+    }
+
+    /**
+     * Retrieves the current numerical score of the dealer's hand.
+     * This is a forwarding method that delegates the call to the internal {@link Dealer} instance.
+     *
+     * @return the calculated integer score of the dealer's hand
+     */
+    public int dealerGetScore() {
+        return dealer.getScore();
+    }
+
+    /**
      * Initializes and starts the Blackjack game session.
      * This method prints a welcome message to the console and immediately
      * begins the first round.
