@@ -1,4 +1,4 @@
-package my_package;
+package mypackage;
 
 import org.junit.jupiter.api.Test;
 import java.util.Map;

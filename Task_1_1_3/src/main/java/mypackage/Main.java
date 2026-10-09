@@ -1,4 +1,4 @@
-package my_package;
+package mypackage;
 
 /**
  * The main entry point of the application used for demonstrating and testing the functionality of

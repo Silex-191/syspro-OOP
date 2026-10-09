@@ -1,4 +1,4 @@
-package my_package;
+package mypackage;
 
 /**
  * A utility class for parsing string representations of mathematical expressions into an

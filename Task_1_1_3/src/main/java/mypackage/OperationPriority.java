@@ -1,4 +1,4 @@
-package my_package;
+package mypackage;
 
 /**
  * Defines the precedence levels for mathematical operations. Used to determine when parentheses are
