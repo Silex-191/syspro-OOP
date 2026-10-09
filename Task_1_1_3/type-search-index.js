@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"my_package","l":"Add"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"my_package","l":"Expression"},{"p":"my_package","l":"Main"},{"p":"my_package","l":"Number"}];updateSearchResults();
+typeSearchIndex = [{"p":"mypackage","l":"Add"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"mypackage","l":"Expression"},{"p":"mypackage","l":"Main"},{"p":"mypackage","l":"Number"}];updateSearchResults();
