@@ -69,7 +69,7 @@ abstract class BinaryExpression extends Expression {
      *
      * @param o the reference object with which to compare
      * @return {@code true} if this object is structurally equal to the given object; {@code false}
-     * otherwise
+     *     otherwise
      */
     @Override
     public boolean equals(Object o) {

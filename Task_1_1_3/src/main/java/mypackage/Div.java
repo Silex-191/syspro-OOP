@@ -53,7 +53,7 @@ class Div extends BinaryExpression {
     }
 
     /**
-     * Simplifies the division expression based on algebraic rules:
+     * Simplifies the division expression based on algebraic rules.
      * <ul>
      *     <li>Evaluates to a constant if both operands are constants.</li>
      *     <li>Returns zero if the left operand (dividend) is zero.</li>
@@ -61,7 +61,7 @@ class Div extends BinaryExpression {
      * </ul>
      *
      * @return a simplified version of this expression, or the expression itself if no
-     * simplification is possible
+     *     simplification is possible
      * @throws ArithmeticException if the simplified right operand evaluates to zero
      */
     @Override

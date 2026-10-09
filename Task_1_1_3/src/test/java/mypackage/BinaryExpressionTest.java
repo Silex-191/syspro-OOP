@@ -51,11 +51,12 @@ class BinaryExpressionTest {
     void testEqualsAndHashCode() {
         Expression expr1 = new DummyBinary(new Number(1), new Number(2));
         Expression expr2 = new DummyBinary(new Number(1), new Number(2));
-        Expression expr3 = new DummyBinary(new Number(2), new Number(1));
-        Expression expr4 = new Add(new Number(1), new Number(2));
 
         assertEquals(expr1, expr2);
         assertEquals(expr1.hashCode(), expr2.hashCode());
+
+        Expression expr3 = new DummyBinary(new Number(2), new Number(1));
+        Expression expr4 = new Add(new Number(1), new Number(2));
 
         assertNotEquals(expr1, expr3);
         assertNotEquals(expr1, expr4);

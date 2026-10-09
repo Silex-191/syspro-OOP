@@ -56,14 +56,14 @@ class UnaryMinus extends Expression {
     }
 
     /**
-     * Simplifies the unary minus expression based on algebraic rules:
+     * Simplifies the unary minus expression based on algebraic rules.
      * <ul>
      *     <li>Removes double negation (e.g., --x becomes x).</li>
      *     <li>Evaluates to a constant number if the inner expression is constant.</li>
      * </ul>
      *
      * @return a simplified version of this expression, or a new simplified {@code UnaryMinus}
-     * expression
+     *     expression
      */
     @Override
     public Expression simplify() {

@@ -94,7 +94,7 @@ public abstract class Expression {
      *
      * @param e the expression to check
      * @return {@code true} if the expression is an instance of {@code Number} with value 0,
-     * {@code false} otherwise
+     *     {@code false} otherwise
      */
     protected static boolean isZero(Expression e) {
         return e instanceof Number n && n.getValue() == 0;
@@ -105,7 +105,7 @@ public abstract class Expression {
      *
      * @param e the expression to check
      * @return {@code true} if the expression is an instance of {@code Number} with value 1,
-     * {@code false} otherwise
+     *     {@code false} otherwise
      */
     protected static boolean isOne(Expression e) {
         return e instanceof Number n && n.getValue() == 1;

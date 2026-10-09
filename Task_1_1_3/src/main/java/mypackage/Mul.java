@@ -42,7 +42,7 @@ class Mul extends BinaryExpression {
     }
 
     /**
-     * Simplifies the multiplication expression based on algebraic rules:
+     * Simplifies the multiplication expression based on algebraic rules.
      * <ul>
      *     <li>Evaluates to a constant if both operands are constants.</li>
      *     <li>Returns zero if either operand is zero.</li>
@@ -50,7 +50,7 @@ class Mul extends BinaryExpression {
      * </ul>
      *
      * @return a simplified version of this expression, or the expression itself if no
-     * simplification is possible
+     *     simplification is possible
      */
     @Override
     public Expression simplify() {
