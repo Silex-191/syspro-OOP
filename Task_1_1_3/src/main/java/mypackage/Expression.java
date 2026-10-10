@@ -33,6 +33,10 @@ public abstract class Expression {
      *
      * @param str the string containing the variable assignments
      * @return the evaluated integer result of the expression
+     * @throws IllegalArgumentException if a variable in the expression is not initialized in the
+     *                                  parsed map
+     * @throws ArithmeticException      if an arithmetic error occurs during evaluation (e.g.,
+     *                                  division by zero)
      */
     public int eval(String str) {
         Map<String, Integer> map = new HashMap<>();
@@ -53,6 +57,10 @@ public abstract class Expression {
      *
      * @param varMap a map containing variable names and their corresponding integer values
      * @return the evaluated integer result of the expression
+     * @throws IllegalArgumentException if a variable in the expression is not initialized in the
+     *                                  provided map
+     * @throws ArithmeticException      if an arithmetic error occurs during evaluation (e.g.,
+     *                                  division by zero)
      */
     public abstract int eval(Map<String, Integer> varMap);
 
@@ -94,7 +102,7 @@ public abstract class Expression {
      *
      * @param e the expression to check
      * @return {@code true} if the expression is an instance of {@code Number} with value 0,
-     *     {@code false} otherwise
+     * {@code false} otherwise
      */
     protected static boolean isZero(Expression e) {
         return e instanceof Number n && n.getValue() == 0;
@@ -105,7 +113,7 @@ public abstract class Expression {
      *
      * @param e the expression to check
      * @return {@code true} if the expression is an instance of {@code Number} with value 1,
-     *     {@code false} otherwise
+     * {@code false} otherwise
      */
     protected static boolean isOne(Expression e) {
         return e instanceof Number n && n.getValue() == 1;
