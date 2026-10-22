@@ -26,7 +26,8 @@ public class GraphFileIO {
      * @param <T>    the data type of the graph
      * @throws IOException if an error occurs during reading or parsing
      */
-    public static <T> void load(Graph<T> graph, Path path, Function<String, T> parser) throws IOException {
+    public static <T> void load(Graph<T> graph, Path path, Function<String, T> parser)
+        throws IOException {
         List<String> lines = Files.readAllLines(path);
         Map<Integer, Vertex<T>> mapVertex = new HashMap<>();
         int i = 0;
@@ -76,7 +77,8 @@ public class GraphFileIO {
      * @param <T>       the data type of the graph
      * @throws IOException if an error occurs during writing
      */
-    public static <T> void save(Graph<T> graph, Path path, Function<T, String> formatter) throws IOException {
+    public static <T> void save(Graph<T> graph, Path path, Function<T, String> formatter)
+        throws IOException {
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             for (Vertex<T> vertex : graph.getVertices()) {
                 writer.write(vertex.getId() + ";" + formatter.apply(vertex.getData()));

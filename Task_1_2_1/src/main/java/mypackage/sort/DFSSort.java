@@ -34,7 +34,8 @@ public class DFSSort<T> implements TopologicalSort<T> {
 
         if (state != null) {
             if (!state) {
-                throw new IllegalStateException("Graph has cycle, topological sort is not possible");
+                throw new IllegalStateException(
+                    "Graph has cycle, topological sort is not possible");
             }
             return;
         }

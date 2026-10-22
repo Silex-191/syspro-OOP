@@ -6,6 +6,7 @@ package mypackage.graph;
  * @param <T> the type of data stored in this vertex
  */
 public class Vertex<T> {
+
     private final int id;
     private final T data;
 
@@ -40,8 +41,12 @@ public class Vertex<T> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Vertex<?> vertex = (Vertex<?>) o;
         return id == vertex.id;

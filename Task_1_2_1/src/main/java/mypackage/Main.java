@@ -7,6 +7,7 @@ import mypackage.sort.DFSSort;
 import mypackage.sort.TopologicalSort;
 
 public class Main {
+
     public static void main(String[] args) {
         Graph<String> graph = new AdjacencyMatrixGraph<>();
 

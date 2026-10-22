@@ -8,8 +8,8 @@ import java.util.function.Function;
 import mypackage.io.GraphFileIO;
 
 /**
- * Abstract base class for Graph implementations providing common equals, hashCode,
- * toString methods, and IO delegation to avoid code duplication.
+ * Abstract base class for Graph implementations providing common equals, hashCode, toString
+ * methods, and IO delegation to avoid code duplication.
  *
  * @param <T> the type of data stored in the vertices
  */

@@ -7,12 +7,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Graph implementation using an incidence matrix.
- * Rows represent vertices and columns represent edges.
+ * Graph implementation using an incidence matrix. Rows represent vertices and columns represent
+ * edges.
  *
  * @param <T> the type of data stored in the vertices
  */
 public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
+
     private int[][] matrix;
     private final Map<Vertex<T>, Integer> vertexToMap = new HashMap<>();
     private final Map<Edge<T>, Integer> edgeToMap = new HashMap<>();
@@ -41,7 +42,9 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean addVertex(Vertex<T> vertex) {
-        if (vertex == null || vertexToMap.containsKey(vertex)) return false;
+        if (vertex == null || vertexToMap.containsKey(vertex)) {
+            return false;
+        }
 
         if (listVertex.size() == matrix.length) {
             setSizeVertex(matrix.length * 2);
@@ -53,7 +56,9 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean removeVertex(Vertex<T> vertex) {
-        if (vertex == null || !vertexToMap.containsKey(vertex)) return false;
+        if (vertex == null || !vertexToMap.containsKey(vertex)) {
+            return false;
+        }
 
         int lastIndex = listVertex.size() - 1;
         int indexVertex = vertexToMap.get(vertex);
@@ -104,11 +109,17 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean addEdge(Vertex<T> from, Vertex<T> to) {
-        if (from == null || to == null) return false;
-        if (!vertexToMap.containsKey(from) || !vertexToMap.containsKey(to)) return false;
+        if (from == null || to == null) {
+            return false;
+        }
+        if (!vertexToMap.containsKey(from) || !vertexToMap.containsKey(to)) {
+            return false;
+        }
 
         Edge<T> edge = new Edge<>(from, to);
-        if (edgeToMap.containsKey(edge)) return false;
+        if (edgeToMap.containsKey(edge)) {
+            return false;
+        }
 
         if (listEdge.size() == matrix[0].length) {
             setSizeEdge(matrix[0].length * 2);
@@ -131,10 +142,14 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean removeEdge(Vertex<T> from, Vertex<T> to) {
-        if (from == null || to == null) return false;
+        if (from == null || to == null) {
+            return false;
+        }
 
         Edge<T> edge = new Edge<>(from, to);
-        if (!edgeToMap.containsKey(edge)) return false;
+        if (!edgeToMap.containsKey(edge)) {
+            return false;
+        }
 
         removeEdgeByIndex(edgeToMap.get(edge));
         return true;

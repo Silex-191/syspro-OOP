@@ -12,6 +12,7 @@ import java.util.Map;
  * @param <T> the type of data stored in the vertices
  */
 public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
+
     private final Map<Vertex<T>, Integer> vertexToMap = new HashMap<>();
     private final List<Vertex<T>> listVertex = new ArrayList<>();
     private boolean[][] matrix;
@@ -72,13 +73,19 @@ public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean addEdge(Vertex<T> from, Vertex<T> to) {
-        if (from == null || to == null) return false;
-        if (!vertexToMap.containsKey(from) || !vertexToMap.containsKey(to)) return false;
+        if (from == null || to == null) {
+            return false;
+        }
+        if (!vertexToMap.containsKey(from) || !vertexToMap.containsKey(to)) {
+            return false;
+        }
 
         int fromIndex = vertexToMap.get(from);
         int toIndex = vertexToMap.get(to);
 
-        if (matrix[fromIndex][toIndex]) return false;
+        if (matrix[fromIndex][toIndex]) {
+            return false;
+        }
 
         matrix[fromIndex][toIndex] = true;
         return true;
@@ -86,13 +93,19 @@ public class AdjacencyMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean removeEdge(Vertex<T> from, Vertex<T> to) {
-        if (from == null || to == null) return false;
-        if (!vertexToMap.containsKey(from) || !vertexToMap.containsKey(to)) return false;
+        if (from == null || to == null) {
+            return false;
+        }
+        if (!vertexToMap.containsKey(from) || !vertexToMap.containsKey(to)) {
+            return false;
+        }
 
         int fromIndex = vertexToMap.get(from);
         int toIndex = vertexToMap.get(to);
 
-        if (!matrix[fromIndex][toIndex]) return false;
+        if (!matrix[fromIndex][toIndex]) {
+            return false;
+        }
 
         matrix[fromIndex][toIndex] = false;
         return true;

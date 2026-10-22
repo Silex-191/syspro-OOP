@@ -11,6 +11,7 @@ import java.util.Map;
  * @param <T> the type of data stored in the vertices
  */
 public class AdjacencyListGraph<T> extends AbstractGraph<T> {
+
     private final Map<Vertex<T>, List<Vertex<T>>> adjList = new HashMap<>();
 
     @Override
@@ -36,11 +37,17 @@ public class AdjacencyListGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean addEdge(Vertex<T> from, Vertex<T> to) {
-        if (from == null || to == null) return false;
-        if (!adjList.containsKey(from) || !adjList.containsKey(to)) return false;
+        if (from == null || to == null) {
+            return false;
+        }
+        if (!adjList.containsKey(from) || !adjList.containsKey(to)) {
+            return false;
+        }
 
         List<Vertex<T>> neighbors = adjList.get(from);
-        if (neighbors.contains(to)) return false;
+        if (neighbors.contains(to)) {
+            return false;
+        }
 
         neighbors.add(to);
         return true;
@@ -48,8 +55,12 @@ public class AdjacencyListGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean removeEdge(Vertex<T> from, Vertex<T> to) {
-        if (from == null || to == null) return false;
-        if (!adjList.containsKey(from) || !adjList.containsKey(to)) return false;
+        if (from == null || to == null) {
+            return false;
+        }
+        if (!adjList.containsKey(from) || !adjList.containsKey(to)) {
+            return false;
+        }
 
         return adjList.get(from).remove(to);
     }
