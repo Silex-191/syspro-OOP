@@ -5,7 +5,7 @@ import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.function.Function;
-import mypackage.io.GraphFileIO;
+import mypackage.io.GraphFileIo;
 
 /**
  * Abstract base class for Graph implementations providing common equals, hashCode, toString
@@ -17,12 +17,12 @@ public abstract class AbstractGraph<T> implements Graph<T> {
 
     @Override
     public void loadFromFile(Path path, Function<String, T> parser) throws IOException {
-        GraphFileIO.load(this, path, parser);
+        GraphFileIo.load(this, path, parser);
     }
 
     @Override
     public void saveToFile(Path path, Function<T, String> formatter) throws IOException {
-        GraphFileIO.save(this, path, formatter);
+        GraphFileIo.save(this, path, formatter);
     }
 
     @Override

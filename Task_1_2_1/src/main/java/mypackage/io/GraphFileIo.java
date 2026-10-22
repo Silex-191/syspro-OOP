@@ -15,7 +15,7 @@ import mypackage.graph.Vertex;
 /**
  * Utility class for reading and writing graphs to and from files.
  */
-public class GraphFileIO {
+public class GraphFileIo {
 
     /**
      * Loads a graph from a specified text file.

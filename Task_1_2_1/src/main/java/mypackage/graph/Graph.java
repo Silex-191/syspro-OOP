@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Function;
-import mypackage.sort.DFSSort;
+import mypackage.sort.DfsSort;
 
 /**
  * Represents a generic directed graph.
@@ -95,7 +95,7 @@ public interface Graph<T> {
      * @return a topologically sorted list of vertices
      */
     static <T> List<Vertex<T>> topologicalSort(Graph<T> g) {
-        return new DFSSort<T>().sort(g);
+        return new DfsSort<T>().sort(g);
     }
 
     /**

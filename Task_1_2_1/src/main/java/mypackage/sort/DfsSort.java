@@ -13,7 +13,7 @@ import mypackage.graph.Vertex;
  *
  * @param <T> the type of data stored in the graph vertices
  */
-public class DFSSort<T> implements TopologicalSort<T> {
+public class DfsSort<T> implements TopologicalSort<T> {
 
     @Override
     public List<Vertex<T>> sort(Graph<T> graph) {

@@ -3,7 +3,7 @@ package mypackage;
 import mypackage.graph.AdjacencyMatrixGraph;
 import mypackage.graph.Graph;
 import mypackage.graph.Vertex;
-import mypackage.sort.DFSSort;
+import mypackage.sort.DfsSort;
 import mypackage.sort.TopologicalSort;
 
 public class Main {
@@ -22,7 +22,7 @@ public class Main {
         graph.addEdge(a, c);
         graph.addEdge(b, c);
 
-        TopologicalSort<String> sorter = new DFSSort<>();
+        TopologicalSort<String> sorter = new DfsSort<>();
         System.out.println("Using manual sorter injection: " + sorter.sort(graph));
 
         System.out.println("Using static method: " + Graph.topologicalSort(graph));
