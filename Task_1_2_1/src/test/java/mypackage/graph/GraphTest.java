@@ -96,4 +96,20 @@ public abstract class GraphTest {
         assertEquals(listGraph, matrixGraph,
             "Graphs with different implementations but identical structures must be equal");
     }
+
+    @Test
+    void testInterfaceDefaultAndStaticMethods() {
+        graph.addVertex(v1);
+        graph.addVertex(v2);
+        graph.addVertex(v3);
+
+        graph.addEdge(v1, v2);
+        graph.addEdge(v2, v3);
+
+        List<Vertex<String>> sorted1 = graph.sortTopologically();
+        assertEquals(3, sorted1.size());
+
+        List<Vertex<String>> sorted2 = Graph.topologicalSort(graph);
+        assertEquals(3, sorted2.size());
+    }
 }
