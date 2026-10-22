@@ -88,6 +88,32 @@ public interface Graph<T> {
     void saveToFile(Path path, Function<T, String> formatter) throws IOException;
 
     /**
+     * Compares the specified object with this graph for equality. Two graphs are considered equal
+     * if they have the same set of vertices and the same set of edges, regardless of their internal
+     * representation.
+     *
+     * @param o the object to be compared for equality with this graph
+     * @return true if the specified object is equal to this graph
+     */
+    boolean equals(Object o);
+
+    /**
+     * Returns the hash code value for this graph. The hash code of a graph should be computed based
+     * on the sets of its vertices and edges to remain consistent with the equals method.
+     *
+     * @return the hash code value for this graph
+     */
+    int hashCode();
+
+    /**
+     * Returns a string representation of this graph. The format should clearly display the vertices
+     * and their outgoing neighbors.
+     *
+     * @return a string representation of this graph
+     */
+    String toString();
+
+    /**
      * Performs a topological sort on the given graph using the default DFS algorithm.
      *
      * @param g   the graph to sort

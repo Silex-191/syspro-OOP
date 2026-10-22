@@ -14,6 +14,11 @@ import java.util.Map;
  */
 public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
 
+    private static final int EDGE_NONE = 0;
+    private static final int EDGE_OUTGOING = -1;
+    private static final int EDGE_INCOMING = 1;
+    private static final int EDGE_LOOP = 2;
+
     private int[][] matrix;
     private final Map<Vertex<T>, Integer> vertexToMap = new HashMap<>();
     private final Map<Edge<T>, Integer> edgeToMap = new HashMap<>();
@@ -72,13 +77,14 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
 
         if (lastIndex != indexVertex) {
             Vertex<T> lastVertex = listVertex.get(lastIndex);
-            System.arraycopy(matrix[lastIndex], 0, matrix[indexVertex], 0, matrix[0].length);
-            Arrays.fill(matrix[lastIndex], 0);
+            System.arraycopy(matrix[lastIndex], 0,
+                matrix[indexVertex], 0, matrix[0].length);
+            Arrays.fill(matrix[lastIndex], EDGE_NONE);
 
             listVertex.set(indexVertex, lastVertex);
             vertexToMap.put(lastVertex, indexVertex);
         } else {
-            Arrays.fill(matrix[indexVertex], 0);
+            Arrays.fill(matrix[indexVertex], EDGE_NONE);
         }
 
         listVertex.remove(lastIndex);
@@ -94,13 +100,13 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
             Edge<T> lastEdge = listEdge.get(lastIndex);
             for (int j = 0; j < matrix.length; j++) {
                 matrix[j][i] = matrix[j][lastIndex];
-                matrix[j][lastIndex] = 0;
+                matrix[j][lastIndex] = EDGE_NONE;
             }
             edgeToMap.put(lastEdge, i);
             listEdge.set(i, lastEdge);
         } else {
             for (int j = 0; j < matrix.length; j++) {
-                matrix[j][i] = 0;
+                matrix[j][i] = EDGE_NONE;
             }
         }
         listEdge.remove(lastIndex);
@@ -132,9 +138,11 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
         int fromIndex = vertexToMap.get(from);
         int toIndex = vertexToMap.get(to);
 
-        matrix[fromIndex][edgeIndex] = -1;
-        if (toIndex != fromIndex) {
-            matrix[toIndex][edgeIndex] = 1;
+        if (fromIndex == toIndex) {
+            matrix[fromIndex][edgeIndex] = EDGE_LOOP;
+        } else {
+            matrix[fromIndex][edgeIndex] = EDGE_OUTGOING;
+            matrix[toIndex][edgeIndex] = EDGE_INCOMING;
         }
 
         return true;
@@ -174,7 +182,7 @@ public class IncidenceMatrixGraph<T> extends AbstractGraph<T> {
         List<Vertex<T>> neighbors = new ArrayList<>();
 
         for (int j = 0; j < listEdge.size(); j++) {
-            if (matrix[indexV][j] == -1) {
+            if (matrix[indexV][j] == EDGE_OUTGOING || matrix[indexV][j] == EDGE_LOOP) {
                 neighbors.add(listEdge.get(j).getTarget());
             }
         }

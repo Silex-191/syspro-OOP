@@ -61,4 +61,17 @@ class DfsSortTest {
 
         assertTrue(exception.getMessage().contains("cycle"));
     }
+
+    @Test
+    void testGraphWithSelfLoopThrowsException() {
+        graph.addEdge(v1, v2);
+        graph.addEdge(v2, v2);
+
+        IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
+            sorter.sort(graph);
+        });
+
+        assertTrue(exception.getMessage().contains("cycle"),
+            "Self-loop is a cycle and should trigger a cycle exception");
+    }
 }

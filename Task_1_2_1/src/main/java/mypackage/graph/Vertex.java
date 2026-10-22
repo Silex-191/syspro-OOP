@@ -1,5 +1,7 @@
 package mypackage.graph;
 
+import java.util.Objects;
+
 /**
  * Represents a vertex in a graph.
  *
@@ -49,12 +51,12 @@ public class Vertex<T> {
         }
 
         Vertex<?> vertex = (Vertex<?>) o;
-        return id == vertex.id;
+        return id == vertex.id && Objects.equals(data, vertex.data);
     }
 
     @Override
     public int hashCode() {
-        return Integer.hashCode(id);
+        return Objects.hash(id, data);
     }
 
     @Override
