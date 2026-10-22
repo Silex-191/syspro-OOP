@@ -1,6 +1,6 @@
 package mypackage.graph;
 
-class AdjacencyMatrixGraphTest extends GraphTestBase {
+class AdjacencyMatrixGraphTest extends GraphTest {
     @Override
     protected Graph<String> createGraph() {
         return new AdjacencyMatrixGraph<>();

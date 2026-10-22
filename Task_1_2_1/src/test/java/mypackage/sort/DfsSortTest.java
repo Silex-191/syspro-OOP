@@ -10,16 +10,19 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DFSSortTest {
+class DfsSortTest {
 
     private Graph<String> graph;
     private TopologicalSort<String> sorter;
-    private Vertex<String> v1, v2, v3, v4;
+    private Vertex<String> v1;
+    private Vertex<String> v2;
+    private Vertex<String> v3;
+    private Vertex<String> v4;
 
     @BeforeEach
     void setUp() {
         graph = new AdjacencyListGraph<>();
-        sorter = new DFSSort<>();
+        sorter = new DfsSort<>();
 
         v1 = new Vertex<>(1, "A");
         v2 = new Vertex<>(2, "B");

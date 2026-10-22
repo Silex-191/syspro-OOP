@@ -3,12 +3,15 @@ package mypackage.graph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public abstract class GraphTestBase {
+public abstract class GraphTest {
 
     protected Graph<String> graph;
-    protected Vertex<String> v1, v2, v3;
+    protected Vertex<String> v1;
+    protected Vertex<String> v2;
+    protected Vertex<String> v3;
 
     protected abstract Graph<String> createGraph();
 
@@ -84,15 +87,13 @@ public abstract class GraphTestBase {
     void testEqualsDifferentImplementations() {
         Graph<String> listGraph = new AdjacencyListGraph<>();
         Graph<String> matrixGraph = new AdjacencyMatrixGraph<>();
-
         listGraph.addVertex(v1);
         listGraph.addVertex(v2);
         listGraph.addEdge(v1, v2);
-
         matrixGraph.addVertex(v1);
         matrixGraph.addVertex(v2);
         matrixGraph.addEdge(v1, v2);
-
-        assertEquals(listGraph, matrixGraph, "Graphs with different implementations but identical structures must be equal");
+        assertEquals(listGraph, matrixGraph,
+            "Graphs with different implementations but identical structures must be equal");
     }
 }
