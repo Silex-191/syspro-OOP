@@ -10,7 +10,7 @@ public class Main {
      *
      * @param args command-line arguments (not used)
      */
-    static void main(String[] args) {
+    public static void main(String[] args) {
         StudentRecordBook recordBook = new StudentRecordBook(true, 2);
 
         recordBook.addRecord(new RecordEntry("Mathematical Analysis", 1,
