@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"mypackage","l":"ControlType"},{"p":"mypackage","l":"Grade"},{"p":"mypackage","l":"Main"},{"p":"mypackage","l":"RecordEntry"},{"p":"mypackage","l":"StudentRecordBook"}];updateSearchResults();
