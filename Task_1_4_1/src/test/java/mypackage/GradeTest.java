@@ -11,8 +11,6 @@ class GradeTest {
         assertEquals(4, Grade.GOOD.getNumericValue());
         assertEquals(3, Grade.SATISFACTORY.getNumericValue());
         assertEquals(2, Grade.UNSATISFACTORY.getNumericValue());
-        assertEquals(0, Grade.PASS.getNumericValue());
-        assertEquals(0, Grade.FAIL.getNumericValue());
     }
 
     @Test
@@ -24,5 +22,12 @@ class GradeTest {
 
         assertFalse(Grade.PASS.isNumeric());
         assertFalse(Grade.FAIL.isNumeric());
+    }
+
+    @Test
+    void testGetNumericValueThrowsExceptionForNonNumeric() {
+        assertThrows(IllegalStateException.class, Grade.PASS::getNumericValue);
+        assertThrows(IllegalStateException.class, Grade.FAIL::getNumericValue);
+        assertDoesNotThrow(Grade.EXCELLENT::getNumericValue);
     }
 }

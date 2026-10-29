@@ -8,17 +8,11 @@ public enum Grade {
     GOOD(4),
     SATISFACTORY(3),
     UNSATISFACTORY(2),
-    // Zeros stands for not ruining the grade average
     PASS(0),
     FAIL(0);
 
     private final int numericValue;
 
-    /**
-     * Constructs a grade with the specified numeric value.
-     *
-     * @param numericValue the numeric equivalent of the grade
-     */
     Grade(int numericValue) {
         this.numericValue = numericValue;
     }
@@ -27,16 +21,17 @@ public enum Grade {
      * Gets the numeric equivalent of the grade.
      *
      * @return the numeric value of the grade
+     * @throws IllegalStateException if the grade does not have a numeric equivalent (e.g.,
+     *     PASS/FAIL)
      */
     public int getNumericValue() {
+        if (!isNumeric()) {
+            throw new IllegalStateException(
+                "Cannot get numeric value for a non-numeric grade (PASS/FAIL).");
+        }
         return numericValue;
     }
 
-    /**
-     * Checks if the grade has a meaningful numeric value for GPA calculation.
-     *
-     * @return true if the grade is numeric, false otherwise
-     */
     public boolean isNumeric() {
         return this == EXCELLENT || this == GOOD || this == SATISFACTORY || this == UNSATISFACTORY;
     }

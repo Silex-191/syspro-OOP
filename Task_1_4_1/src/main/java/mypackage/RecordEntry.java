@@ -8,4 +8,15 @@ package mypackage;
  * @param type        the type of academic control
  * @param grade       the grade received by the student
  */
-public record RecordEntry(String subjectName, int semester, ControlType type, Grade grade) {}
+public record RecordEntry(String subjectName, int semester, ControlType type, Grade grade) {
+
+    /**
+     * Compact constructor to validate field values.
+     */
+    public RecordEntry {
+        if (semester < 1) {
+            throw new IllegalArgumentException(
+                "Semester must be a positive integer, got: " + semester);
+        }
+    }
+}
